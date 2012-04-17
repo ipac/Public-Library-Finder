@@ -1,35 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <script src="jquery-1.7.1.min.js"></script>
-    <script>
-     jQuery(window).ready(function initiate_geolocation() {
-           navigator.geolocation.getCurrentPosition(handle_geolocation_query);
-        });
-        function handle_geolocation_query(position){
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
-        }
-$(document).ready(function(){  
-	
-	$.getJSON("http://plinternetsurvey.org/api/index.php?lat=-150.1234&long=60.234&format=json&rad=500", function(json) {
-		var output="";
-		for(var i=0;i<json.posts.length;i++){
-			alert(json);
-			output+="<div>";
-			output+="<b>"+json.posts[i].post.libname+"</b><br/>";
-			output+=json.posts[i].post+"<br/>";
-			output+="</div>";
-	}
-	$('#posts').html(output);
-	
-	}).success(function() { alert("second success"); })
-.error(function() { alert("error"); })
-.complete(function() { alert("complete"); });
-});	
-    </script> 
-  </head>
-  <body>
-	<div id="posts"></div>
-  </body>
- </html>
+Library Tech HTML5 App
+
+Simple mobile app that determines what public libraries around you and what tech offerings they provide (wifi, number of computer terminals, internet connection speed, training, etc). Data from IMLS and IPAC's Public Library Funding and Technology Access Study. 
