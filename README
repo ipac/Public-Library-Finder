@@ -1,3 +1,5 @@
-Library Tech HTML5 App
+Library Tech HTML5 App (http://ipac.umd.edu/mobile)
 
 Simple mobile app that determines what public libraries around you and what tech offerings they provide (wifi, number of computer terminals, internet connection speed, training, etc). Data from IMLS and IPAC's Public Library Funding and Technology Access Study. 
+
+IPAC PLFTAS API: http://plinternetsurvey.org/api/
