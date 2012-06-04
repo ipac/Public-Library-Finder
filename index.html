@@ -26,22 +26,35 @@
 		}
 
 		$(document).ready(function(){
+<<<<<<< HEAD
 		   var cache = {};
+=======
+>>>>>>> 2fb3cf3ea1e942dea1547bbbddc70e9681c87afb
 			$('#getLocation').click(function(){
 				navigator.geolocation.getCurrentPosition(foundLocation, noLocation);
 				$.getJSON("http://ipac.umd.edu/api/closest/?lat=" + lat + "&long=" + lng + "", function(data) {
 				//$.getJSON("http://ipac.umd.edu/api/closest/?lat=38.92020034&long=-77.0374984&rad=10&max=10", function(data){
 					$('#liblist li').remove();
 					//$('#liblist').listview('refresh');
+<<<<<<< HEAD
                         
+=======
+
+>>>>>>> 2fb3cf3ea1e942dea1547bbbddc70e9681c87afb
 					//loop
 					$.each(data.results, function(i) {
 						$('<li></li>')
 						.hide()
+<<<<<<< HEAD
 						.append('<a href="#detail?rec=' + i + '" class="liblinks"><h3>' + data.results[i].record.NAME + '</h3><p>' + data.results[i].record.ADDRESS + '</p><p class="ui-li-aside">' + Math.round(data.results[i].record.distance*100)/100 + ' miles</p></a>')
 						.appendTo('#liblist')
 						.show();
 						cache["rec="+i]=data.results[i].record;
+=======
+						.append('<a href="#detail?rec=' + i + '"><h3>' + data.results[i].record.NAME + '</h3><p>' + data.results[i].record.ADDRESS + '</p><p class="ui-li-aside">' + Math.round(data.results[i].record.distance*100)/100 + ' miles</p></a>')
+						.appendTo('#liblist')
+						.show();
+>>>>>>> 2fb3cf3ea1e942dea1547bbbddc70e9681c87afb
 					});
 				
 					//switch to newly created list page
@@ -51,6 +64,7 @@
 					$('#liblist').listview('refresh');
 				});
 			});
+<<<<<<< HEAD
 			
 			$('.liblinks').live("click",function(){
 			
@@ -66,6 +80,8 @@
 			
 			
 			});
+=======
+>>>>>>> 2fb3cf3ea1e942dea1547bbbddc70e9681c87afb
 			//$('#goHome').click(function(){
 			//});
 			//$('#goList').click(function(){
@@ -133,7 +149,11 @@
 				<h1>Library Lookup</h1>
 				<a href="#home" data-role="button" data-inline="false">Go Home</a>
 			</div>
+<<<<<<< HEAD
 			<div id="detailcontent" data-role="content" data-theme="a">
+=======
+			<div data-role="content" data-theme="a">
+>>>>>>> 2fb3cf3ea1e942dea1547bbbddc70e9681c87afb
 				<p>Name</p>
 				<p>Address</p>
 				<p># of computers</p>
