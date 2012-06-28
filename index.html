@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Library Lookup</title>
-		<link rel="stylesheet" href="themes/test.min.css" />
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile.structure-1.1.0.min.css" />
-		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+                <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+		<link rel="stylesheet" href="themes/ipac.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile.structure-1.1.0.min.css" />
 		<script>
 
 		function foundLocation(position)
@@ -26,35 +26,22 @@
 		}
 
 		$(document).ready(function(){
-<<<<<<< HEAD
 		   var cache = {};
-=======
->>>>>>> 2fb3cf3ea1e942dea1547bbbddc70e9681c87afb
 			$('#getLocation').click(function(){
 				navigator.geolocation.getCurrentPosition(foundLocation, noLocation);
-				$.getJSON("http://ipac.umd.edu/api/closest/?lat=" + lat + "&long=" + lng + "", function(data) {
+				$.getJSON("http://ipac.umd.edu/api/closest/?lat=" + lat + "&long=" + lng , function(data) {
 				//$.getJSON("http://ipac.umd.edu/api/closest/?lat=38.92020034&long=-77.0374984&rad=10&max=10", function(data){
 					$('#liblist li').remove();
 					//$('#liblist').listview('refresh');
-<<<<<<< HEAD
                         
-=======
-
->>>>>>> 2fb3cf3ea1e942dea1547bbbddc70e9681c87afb
 					//loop
 					$.each(data.results, function(i) {
 						$('<li></li>')
 						.hide()
-<<<<<<< HEAD
 						.append('<a href="#detail?rec=' + i + '" class="liblinks"><h3>' + data.results[i].record.NAME + '</h3><p>' + data.results[i].record.ADDRESS + '</p><p class="ui-li-aside">' + Math.round(data.results[i].record.distance*100)/100 + ' miles</p></a>')
 						.appendTo('#liblist')
 						.show();
 						cache["rec="+i]=data.results[i].record;
-=======
-						.append('<a href="#detail?rec=' + i + '"><h3>' + data.results[i].record.NAME + '</h3><p>' + data.results[i].record.ADDRESS + '</p><p class="ui-li-aside">' + Math.round(data.results[i].record.distance*100)/100 + ' miles</p></a>')
-						.appendTo('#liblist')
-						.show();
->>>>>>> 2fb3cf3ea1e942dea1547bbbddc70e9681c87afb
 					});
 				
 					//switch to newly created list page
@@ -64,7 +51,6 @@
 					$('#liblist').listview('refresh');
 				});
 			});
-<<<<<<< HEAD
 			
 			$('.liblinks').live("click",function(){
 			
@@ -72,16 +58,13 @@
 			
 			
 			
-			$("#detailcontent").html("<p>Name:"+cache[user].NAME+"</p><p>Address:"+cache[user].ADDRESS+"</p><p># of computers:"+cache[user].CPU+"</p><p>WIFI:"+cache[user].WIFI+"</p><p>Speed:"+cache[user].SPEED+"</p><li><a href='tel:"+cache[user].PHONE+"'>Call to a phone number using a link</a>");
-			
+			$("#detailcontent").html("<p>Name:"+cache[user].NAME+"</p><p>Address:"+cache[user].ADDRESS+"</p><p># of computers:"+cache[user].CPU+"</p><p>WIFI:"+cache[user].WIFI+"</p><p>Speed:"+cache[user].SPEED+"</p><li><a href='tel:"+cache[user].PHONE+"'>Call to a phone number using a link</a>");			
 			
 			return true;
 			
 			
 			
 			});
-=======
->>>>>>> 2fb3cf3ea1e942dea1547bbbddc70e9681c87afb
 			//$('#goHome').click(function(){
 			//});
 			//$('#goList').click(function(){
@@ -108,20 +91,21 @@
 				<h1>Library Lookup</h1>
 			</div>
 			<div data-role="content" data-theme="a">
-				<div align=center><img src="images/splash.png" width=125px height=125px></img></div>
-				<div align=center><p>Find public libraries near me and show tech their tech offerings</p></div>
-				<input type="button" value="Get My Location" id="getLocation" />
-			</div>
+				<div align=center><img src="images/splash.png" width=200px height=200px></img></div>
+			<div align=center><p><h4>Discover Nearby Libraries</h4></p></div>
+			<div align=center><p><h2></h2><p></div>
+				<input type="button" value="Click to Find Libraries" id="getLocation" />
+                </div>
 		</div>
 
 		<!-- displaylist -->
-		<div id="displaylist" data-role="page" data-theme="a">
-			<div data-role="header" data-position="inline">
-				<a href="#home" id="goHome">Go Home</a>
+		<div id="displaylist" data-role="page" data-theme="b">
+			<div data-role="header" data-position="inline" data-theme="b">
+				<a href="#home" data-icon="home" data-iconpos="notext" id="goHome"></a>
 				<h1>Library Lookup</h1>
-				<a href="#settings" data-icon="gear">Settings</a>
+				<a href="#settings" data-icon="gear" data-iconpos="notext"></a>
 			</div>
-			<div data-role="content" data-theme="a">
+			<div data-role="content" data-theme="b">
 				<ul id="liblist" data-role="listview">
 				<!-- stuff will be generate here -->
 				</ul>
@@ -131,29 +115,39 @@
 		<!-- settings -->
 		<div id="settings" data-role="page" data-theme="a">
 			<div data-role="header" data-position="inline">
-				<a href="#displaylist" data-role="button" data-inline="false">Go Back</a>
+				<a href="#home" data-role="button" data-iconpos="notext" data-icon="home" data-inline="false" id="goHome"></a>
 				<h1>Library Lookup</h1>
-				<a href="#home" data-role="button" data-inline="false" id="goHome">Go Home</a>
+				<a href="#displaylist" data-role="button" data-iconpos="notext" data-icon="back" data-inline="false"></a>
 			</div>
-			<div data-role="content" data-theme="a">
-				<p>Change settings</p>
-				<p>Change radius</p>
-				<p>Filter results</p>
+			<div data-role="collapsible">
+				<h3>Settings</h3>
+				<p>Change</p>
+			</div>
+			<div data-role="collapsible">
+				<h3>Change Radius</h3>
+				<p>1 Mile</p>
+				<p>5 Miles</p>
+				<p>10 Miles</p>
+				<p>25 Miles</p>
+				<p>100 Miles</p>
+			</div>
+			<div data-role="collapsible">
+				<h3>Filter Results</h3>
+				<p>Proximity</p>
+				<p># of terminals</p>
+				<p>Strength of Wifi</p>	
 			</div>
 		</div>
 		
 		<!-- detail -->
 		<div id="detail" data-role="page" data-theme="a">
 			<div data-role="header" data-position="inline">
-				<a href="#displaylist" data-role="button" data-inline="false">Go Back</a>
+				<a href="#home" data-role="button" data-iconpos="notext" data-icon="home" data-inline="false"></a>
 				<h1>Library Lookup</h1>
-				<a href="#home" data-role="button" data-inline="false">Go Home</a>
+				<a href="#displaylist" data-role="button" data-iconpos="notext" data-icon="back" data-inline="false"></a>
+				
 			</div>
-<<<<<<< HEAD
 			<div id="detailcontent" data-role="content" data-theme="a">
-=======
-			<div data-role="content" data-theme="a">
->>>>>>> 2fb3cf3ea1e942dea1547bbbddc70e9681c87afb
 				<p>Name</p>
 				<p>Address</p>
 				<p># of computers</p>
