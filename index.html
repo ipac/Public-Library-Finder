@@ -5,9 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Library Lookup</title>
                 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
 		<link rel="stylesheet" href="themes/ipac.min.css" />
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile.structure-1.1.0.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile.structure-1.1.1.min.css" />
 		<script>
 
 		function foundLocation(position)
@@ -58,8 +58,8 @@
 			
 			
 			
-			$("#detailcontent").html("<p>Name:"+cache[user].NAME+"</p><p>Address:"+cache[user].ADDRESS+"</p><p># of computers:"+cache[user].CPU+"</p><p>WIFI:"+cache[user].WIFI+"</p><p>Speed:"+cache[user].SPEED+"</p><li><a href='tel:"+cache[user].PHONE+"'>Call to a phone number using a link</a>");			
-			
+			$("#detailcontent").html("<table><tr><td><strong>Name:</strong></td><td>"+cache[user].NAME+"</td></tr><tr><td><strong>Address:</strong></td><td>"+cache[user].ADDRESS+"</td></tr><tr><td><strong>Number of Workstations:</strong></td><td>"+cache[user].CPU+"</td></tr><tr><td><strong>WIFI:</strong></td><td>"+cache[user].WIFI+"</td></tr><tr><td><strong>Speed(1-11):</strong></td><td>"+cache[user].SPEED+"</td></tr><tr><td><a href='tel:"+cache[user].PHONE+"'>Call to a phone number using a link</a></td></tr></table>");
+
 			return true;
 			
 			
